@@ -1,0 +1,6 @@
+<img src={coin?.image.large} alt={coin.name} />
+      <h1>{coin.name}</h1>
+      <h5>{HtmlParser( coin?.description["en"].split(".") )} </h5>
+      <h2>Rank : {coin?.market_cap_rank}  </h2>
+      <h2> Price : {coin?.market_data.curren_price[currency.toLowerCase()]} </h2>
+      

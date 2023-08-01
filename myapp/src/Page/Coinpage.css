@@ -1,0 +1,59 @@
+.imgdiv{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+}
+.price1{
+    margin-top: 250px;
+}
+.coinid{
+    margin-left: 80px;
+}
+.div1{
+    margin-top: 30px;
+}
+.coinh1{
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+}
+.coinh1 p{
+    margin-top: 20px;
+}
+.div3{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+
+.cointable1{
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.div2{
+    margin-top: 50px;
+    
+}
+.table1{
+    width:900px;
+    margin-left: 70px;
+}
+.info{
+    width:800px;
+    margin-top: 50px;
+
+}
+.option1{
+    width:100px;
+    margin-left: 150px;
+    margin-top:30px;
+
+}
+.optionselect{
+    width:300px;
+    height: 40px;
+    border:2px solid black;
+}
+.graph{
+    margin-top: 100px;
+}
