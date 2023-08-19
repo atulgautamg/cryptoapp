@@ -8,14 +8,14 @@ import  { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Info = ({id}) => {
-     const {stat,setstat}=Cryptostate();  
+     const {currency,stat,setstat,}=Cryptostate();  
   const [graphdata,setgraphdata]=useState([]);
    useEffect(()=>{
 
     
    })
   const fetchcoins=async()=>{
-       const res= await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${stat}`);
+       const res= await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${stat}`);
        console.log(res.data);
        
  const graphdata=res.data.prices.map((price)=>{
@@ -31,7 +31,7 @@ setgraphdata(graphdata);
     }
 useEffect(()=>{
     fetchcoins();
-},[stat])
+},[stat,currency])
 const data = [
   {
     name: 'Page A',

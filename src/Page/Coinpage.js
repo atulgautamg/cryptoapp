@@ -12,7 +12,7 @@ import "./Coinpage.css";
 const Coinpage = () => {
     const {id}=useParams();
     const [coin,setcoin]=useState({});
-    const {stat,setstat}=Cryptostate();
+    const {stat,setstat,currency,symbol}=Cryptostate();
     const url=`https://api.coingecko.com/api/v3/coins/${id}`
     useEffect(()=>{
       axios.get(url).then((res)=>{
@@ -21,6 +21,7 @@ const Coinpage = () => {
         console.log(error);
       })
     },[])
+    
   return (
     <div>
     <Navbar></Navbar>
@@ -35,19 +36,30 @@ const Coinpage = () => {
       {coin.image?<img src={coin.image.large} alt="" />:null}
       </div>
       <div className='price1'>
-      {coin.market_data?.current_price?<h3>Price :{coin.market_data?.current_price.usd.toFixed(3)} $ </h3> :null}
-      {coin.market_cap_rank?<h3> Rank :  {coin.market_cap_rank}  </h3>:null}
+       {currency=="USD"? <div>{coin.market_data?.current_price?<h3>Price :{coin.market_data?.current_price.usd.toFixed(3)} {symbol} </h3> :null} </div>
+      :<div>{coin.market_data?.current_price?<h3>Price :{coin.market_data?.current_price.inr.toFixed(3)} {symbol} </h3> :null}</div> 
+      }{coin.market_cap_rank?<h3> Rank :  {coin.market_cap_rank}  </h3>:null}
       </div>
 </div>
-
-<div className='cointable1'>
-  <div> {coin.market_data?.market_cap? <p>Market Cap: {coin.market_data.market_cap.usd} </p>:null} </div>
-  <div> {coin.market_data?.low_24h? <p>Low: {coin.market_data.low_24h.usd} </p>:null} </div>
-  <div> {coin.market_data?.high_24h? <p>High: {coin.market_data.high_24h.usd} </p>:null} </div>
+{currency=="USD"?<div className='cointable1'>
+  <div> {coin.market_data?.market_cap? <p>Market Cap: {coin.market_data.market_cap.usd} {symbol} </p>:null} </div>
+  <div> {coin.market_data?.low_24h? <p>Low: {coin.market_data.low_24h.usd} {symbol} </p>:null}  </div>
+  <div> {coin.market_data?.high_24h? <p>High: {coin.market_data.high_24h.usd}  {symbol} </p>:null} </div>
+  <div> {coin.market_data?.circulating_supply? <p>Circulating Supply: {coin.market_data.circulating_supply} </p>:null} </div>
+   
+    
+   </div>:
+   <div className='cointable1'>
+  <div> {coin.market_data?.market_cap? <p>Market Cap: {coin.market_data.market_cap.inr} {symbol} </p>:null} </div>
+  <div> {coin.market_data?.low_24h? <p>Low: {coin.market_data.low_24h.inr} {symbol} </p>:null} </div>
+  <div> {coin.market_data?.high_24h? <p>High: {coin.market_data.high_24h.inr}  {symbol} </p>:null} </div>
   <div> {coin.market_data?.circulating_supply? <p>Circulating Supply: {coin.market_data.circulating_supply} </p>:null} </div>
    
     
    </div>
+   
+    }
+
    <div className="option1 form-floating">
    <h3>Cryptocurrency Statistics</h3>
   <select value={stat} onChange={(e)=>{setstat(e.target.value)}} className="optionselect "  >

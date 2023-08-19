@@ -9,6 +9,7 @@ import {
 import Home from './Page/Home';
 import Coins from './Page/Coins';
 import Coinpage from './Page/Coinpage';
+import Coinstrend from './Page/Coinstrend';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/' element={<Home></Home>}  exact></Route>
         <Route path='/coins' element={<Coins></Coins>}  exact></Route>
         <Route path='/coins/:id' element={<Coinpage></Coinpage>}> </Route>
-        
+        <Route path='/coins/1' element={<Coinstrend></Coinstrend>}> </Route>
+
       </Routes>
     </Router>
 
