@@ -95,7 +95,7 @@ const data = [
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Price"  stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Timw"  stroke="#82ca9d" />
         </LineChart>
     </div>
   )
