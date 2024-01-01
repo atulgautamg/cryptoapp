@@ -1,7 +1,7 @@
 .imgdiv{
     display: flex;
     flex-direction: row;
-    margin-left: 40px;
+    margin-left: 10px;
 }
 .price1{
     margin-top: 250px;

@@ -37,7 +37,7 @@ const Coinpage = () => {
       </div>
       <div className='price1'>
        {currency=="USD"? <div>{coin.market_data?.current_price?<h3>Price :{coin.market_data?.current_price.usd.toFixed(3)} {symbol} </h3> :null} </div>
-      :<div>{coin.market_data?.current_price?<h3>Price :{coin.market_data?.current_price.inr.toFixed(3)} {symbol} </h3> :null}</div> 
+      :<div>{coin.market_data?.current_price?<h3>Price:{coin.market_data?.current_price.inr.toFixed(3)} {symbol} </h3> :null}</div> 
       }{coin.market_cap_rank?<h3> Rank :  {coin.market_cap_rank}  </h3>:null}
       </div>
 </div>
