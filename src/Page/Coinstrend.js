@@ -12,7 +12,8 @@ const Coinstrend = () => {
     const coins=res.data.map((coin)=>{
         return {
             
-            name:coin.name,
+            name:coin.name,                                        
+              
             image:coin.image,
             current_price:coin.current_price,
             id:coin.id

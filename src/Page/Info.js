@@ -8,18 +8,19 @@ import  { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Info = ({id}) => {
-     const {currency,stat,setstat,}=Cryptostate();  
+     const {stat,setstat}=Cryptostate();  
   const [graphdata,setgraphdata]=useState([]);
+  const {currency}=Cryptostate();
    useEffect(()=>{
 
     
    })
   const fetchcoins=async()=>{
-       const res= await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${stat}`);
-       console.log(res.data);
-       
+       const res= await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency.toLowerCase()}&days=${stat}`);
+  console.log(currency.toLowerCase())      
  const graphdata=res.data.prices.map((price)=>{
   const [timestamp,p]=price;
+
   const date=new Date(timestamp).toLocaleDateString('en-us')
  return {
   
@@ -29,6 +30,7 @@ const Info = ({id}) => {
 });
 setgraphdata(graphdata);
     }
+    console.log(graphdata);
 useEffect(()=>{
     fetchcoins();
 },[stat,currency])
@@ -95,10 +97,9 @@ const data = [
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Timw"  stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Price"  stroke="#82ca9d" />
         </LineChart>
     </div>
   )
 }
-
-export default Info
+export default Info;

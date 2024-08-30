@@ -55,14 +55,12 @@ fetchcoins();
       <th scope="col">24th Change</th>
       <th scope="col">Market Cap Change</th>
       <th scope="col">Market Cap</th>
-      
     </tr>
   </thead>
   <tbody className='tbody'>
   {coins.filter((row)=>{return query.toLowerCase()===""? row: row.id.toLowerCase().includes(query) ||  row.symbol.toLowerCase().includes(query) }).slice((page-1)*10,(page-1)*10+10).map((row)=>{
     return (
              <tr className='coinsrow'>
-        
         <Link to={`/coins/${row.id}`}><td    scope="row" > <img className='coinimg1' src={row?.image} alt={row.name} /> </td></Link> 
         <td > <Link div  className='td1' to={`/coins/${row.id}`}>{row.name? <div>{row.name}</div> :null} </Link></td> 
       <td>  <Link  to={`/coins/${row.id}`}> <div className='td1'>{row.current_price? <div> {symbol} {row.current_price}</div>:null}</div></Link> </td>
