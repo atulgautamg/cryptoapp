@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 import Coinstrend from './Coinstrend';
 const Home = () => {
   return (
-    <div>
+    <div >
       <Navbar></Navbar>
 <Banner></Banner>
 <Coins></Coins>

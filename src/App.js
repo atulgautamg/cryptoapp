@@ -16,7 +16,7 @@ import Index3  from './Index3';
 function App() {
   
   return (
-    <div >
+    <div  >
    <Router>
       <Routes>
       <Route path='/practice' element={<Practice></Practice>}  exact></Route>

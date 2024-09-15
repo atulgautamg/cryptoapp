@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContextApi, { Cryptostate } from './ContextApi';
 import { Link, useNavigate } from 'react-router-dom';
 import {Pagination} from "@material-ui/lab"
+
 import "./Coins.css"
 const Coins = () => {
   const [coins,setcoins]=useState([]);
@@ -19,6 +20,7 @@ const Coins = () => {
     setloading(false);
     
   }
+  
   const navigate=useNavigate();
   const handlesearch=()=>{
     return coins.filter((coin)=>{
@@ -45,36 +47,25 @@ fetchcoins();
         <button onClick={handlesearch} className="searchbtn " type="submit">Search</button>
       </form>
       </div>
- <div className='coinstable container'>
-<table class="table">
-  <thead className="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Coins</th>
-      <th scope="col">Price</th>
-      <th scope="col">24th Change</th>
-      <th scope="col">Market Cap Change</th>
-      <th scope="col">Market Cap</th>
-    </tr>
-  </thead>
-  <tbody className='tbody'>
-  {coins.filter((row)=>{return query.toLowerCase()===""? row: row.id.toLowerCase().includes(query) ||  row.symbol.toLowerCase().includes(query) }).slice((page-1)*10,(page-1)*10+10).map((row)=>{
-    return (
-             <tr className='coinsrow'>
-        <Link to={`/coins/${row.id}`}><td    scope="row" > <img className='coinimg1' src={row?.image} alt={row.name} /> </td></Link> 
-        <td > <Link div  className='td1' to={`/coins/${row.id}`}>{row.name? <div>{row.name}</div> :null} </Link></td> 
-      <td>  <Link  to={`/coins/${row.id}`}> <div className='td1'>{row.current_price? <div> {symbol} {row.current_price}</div>:null}</div></Link> </td>
-      <td><Link to={`/coins/${row.id}`}> <div className='td1'> {row.market_cap_change_percentage_24h?<div>{row.market_cap_change_percentage_24h.toFixed(2)}</div>:"" }</div></Link></td>
-      <td><Link to={`/coins/${row.id}`}> <div className='td1'> {row.market_cap_change_24h?<div> {row.market_cap_change_24h.toFixed(2).toString().slice(0,7)}</div>:null}</div></Link></td>
-      <td><Link to={`/coins/${row.id}`}> <div className='td1'> {row.market_cap?<div>{row.market_cap.toFixed(2).toString().slice(0,7)} M</div>:null }</div></Link></td>
-      </tr>
-
-        )
-  })}
-  
-  </tbody>
-</table>
-</div>
+      </div>
+      <div className='tablecontainer'>
+           <div className='tablehead'>
+           <div className='rowcoin'> <div className='t1'></div> <div className='t2'><div className='rowname'> Coins </div> </div> <div className='t3'> <div className='rowname'>Price </div></div> <div className='t4'><div className='rowname'>24th Change </div></div>  
+          <div className='t5'> <div className='rowname'> Market Cap Change </div></div> <div className='t6'> <div className='rowname'>Market Cap Value</div></div>   </div> 
+          </div>
+          <div className='tablecontent'>
+          {coins.filter((row)=>{return query.toLowerCase()===""? row: row.id.toLowerCase().includes(query) ||  row.symbol.toLowerCase().includes(query) }).slice((page-1)*10,(page-1)*10+10).map((row)=>(
+            <Link to={`/coins/${row.id}`} div className='rowcoin'>
+               <div className='t1'>   <img className='coinimg1' src={row?.image} alt={row.name} />  </div>
+               <div className='t2'> {row.name? <div className='rowname' >{row.name}</div> :null} </div>
+               <div className='t3'> {row.current_price? <div className='rowname'> {symbol} {row.current_price}</div>:null}</div> 
+               <div className='t4'> {row.market_cap_change_percentage_24h?<div className='rowname'>{row.market_cap_change_percentage_24h.toFixed(2)}</div>:"" }</div>
+               <div className='t5'> {row.market_cap_change_24h?<div className='rowname'> {row.market_cap_change_24h.toFixed(2).toString().slice(0,7)}</div>:null}</div> 
+               <div className='t6'> {row.market_cap?<div className='rowname'>{row.market_cap.toFixed(2).toString().slice(0,7)} M</div>:null }</div>
+            </Link>
+          ))}
+          </div>
+         
       </div>
       <div className='page1'>
      Page: <div> <Pagination style={{height:"100px"}}   count={coins.length/10} onChange={(_,value)=>{setpage(value); window.scroll(0,550)}}></Pagination>    

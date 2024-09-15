@@ -5,7 +5,7 @@ import { HistoricalChart } from './Api';
 import { CircularProgress } from '@material-ui/core';
 
 import  { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart } from 'recharts';
 
 const Info = ({id}) => {
      const {stat,setstat}=Cryptostate();  
