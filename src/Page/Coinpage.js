@@ -62,12 +62,12 @@ const Coinpage = () => {
 
    <div className="option1 form-floating">
    <h3>Cryptocurrency Statistics</h3>
-  <select value={stat} onChange={(e)=>{setstat(e.target.value)}} className="optionselect "  >
+  <select value={stat} onChange={(e)=>{setstat(e.target.value)}} className="select1 "  >
   
-    <option  value={1}>24hr</option>
-    <option  value={7}>1 week </option>
-    <option  value={30}>1 month</option>
-    <option  value={365}>1 year</option>
+    <option className='select2' value={1}>24hr</option>
+    <option className='select2' value={7}>1 week </option>
+    <option className='select2' value={30}>1 month</option>
+    <option  className='select2' value={365}>1 year</option>
   
   </select>
   
@@ -75,7 +75,7 @@ const Coinpage = () => {
        </div>
        <div className='div2' >
        <table className="table1">
-  <thead class="thead-light">
+  <thead class="thead-light rt3">
     <tr>
       <th scope="col">1h</th>
       <th scope="col">24h</th>

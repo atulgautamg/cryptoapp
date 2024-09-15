@@ -19,8 +19,8 @@ const Navbar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <div className="select1 ">
-  <select value={currency} onChange={(e)=>setcurrency(e.target.value)} className="btn2" id="btn3">
+      <div className="select4 ">
+  <select value={currency} onChange={(e)=>setcurrency(e.target.value)} className="btn2" >
     <option className='btn3' value={"INR"}>INR</option>
     <option className='btn3' value={"USD"}>USD</option>
   </select>
