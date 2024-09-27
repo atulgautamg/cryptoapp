@@ -4,16 +4,31 @@ import axios from 'axios';
 import ContextApi, { Cryptostate } from './ContextApi';
 import { Link, useNavigate } from 'react-router-dom';
 import {Pagination} from "@material-ui/lab"
+import { createTheme } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
+
 
 import "./Coins.css"
 const Coins = () => {
   const [coins,setcoins]=useState([]);
+
+
   const [loading,setloading]=useState(false);
   const [page, setpage] = useState(1);
   const [search,setsearch]=useState();
   const {currency,symbol}=Cryptostate();
   const [query,setquery]=useState("");
   
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: purple[500],
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
   const fetchcoins=async()=>{
     const {data}=await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`);
     setcoins(data);
@@ -68,8 +83,9 @@ fetchcoins();
          
       </div>
       <div className='page1'>
-     Page: <div> <Pagination style={{height:"100px"}}   count={coins.length/10} onChange={(_,value)=>{setpage(value); window.scroll(0,550)}}></Pagination>    
+     <div className='page3'>  Page: </div> <div className='page2'> <Pagination style={{height:"100px",color:"white"} } color='primary'   count={coins.length/10} onChange={(_,value)=>{setpage(value); window.scroll(0,550)}}></Pagination>    
      </div> </div>
+  
     </div>
   )
 }

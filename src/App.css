@@ -43,6 +43,23 @@
     transform: rotate(360deg);
   }
 }
+.linechart{
+  color:white;
+  
+}
+.page2{
+  background-color: #f68215;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.page3{
+  margin-top: 15px;
+}
+.page1{
+  display: flex;
+  flex-direction: row;
+}
 .select1{
   height: 100px;
 }

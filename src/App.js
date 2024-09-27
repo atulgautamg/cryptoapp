@@ -27,7 +27,7 @@ function App() {
         <Route path='/coins/1' element={<Coinstrend></Coinstrend>}> </Route>
          <Route path='/coins1'element={<Coins3></Coins3>} ></Route>
          <Route path='/index'element={<Index3></Index3>} ></Route>
-        
+        <Route path='/prac' element={<Practice></Practice>}> </Route>
       </Routes>
     </Router>
 

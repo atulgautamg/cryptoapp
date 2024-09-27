@@ -5,7 +5,7 @@ import { HistoricalChart } from './Api';
 import { CircularProgress } from '@material-ui/core';
 
 import  { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart,Area } from 'recharts';
 
 const Info = ({id}) => {
      const {stat,setstat}=Cryptostate();  
@@ -80,8 +80,8 @@ const data = [
 ];
 
   return (
-    <div>
-    <LineChart
+    <div className='linechart'>
+<LineChart
           width={900}
           height={400}
           data={graphdata}
@@ -91,14 +91,24 @@ const data = [
             left: 20,
             bottom: 5,
           }}
+        
         >
-          <CartesianGrid strokeDasharray="5 5" />
-          <XAxis dataKey="Date" />
-          <YAxis />
+          <CartesianGrid strokeDasharray="5 5"  />
+          <XAxis color='white' dataKey="Date"  />
+          <YAxis color='white' />
+          <defs>
+    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+      <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
+    </linearGradient>
+  </defs>
+ 
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Price"  stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Price"  stroke="#82ca9d" fillOpacity={1} fill='url(#colorUv)'  />
         </LineChart>
+    
+
     </div>
   )
 }

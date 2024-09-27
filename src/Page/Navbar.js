@@ -10,7 +10,7 @@ const Navbar = () => {
   console.log(currency);
   return (
     <div>
-         <nav className="navbar navbar-expand-lg bg-primary" style={{backgroundImage:`url(${backimg})`,width:"100vw",height:"120px"}}>
+         <nav className="navbar navbar-expand-lg bg-primary" style={{backgroundImage:`url(${backimg})`,width:"100vw",height:"120px",backgroundSize:"cover"}}>
   <div className="container-fluid">
     <div className='img3' >  <img style={{width:"50px",height:"50px"}} src={cypto} alt="" /> </div>
     <Link className="navbar-brand" style={{padding:"20px",color:"white",}} to="/">CryptoMania</Link>

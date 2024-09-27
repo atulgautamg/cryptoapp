@@ -89,6 +89,7 @@ body{
     width:100px;
     
 }
+
 .searchbtn{
  width:120px;   
  border:none;
@@ -114,12 +115,12 @@ body{
  background-color: whitesmoke;
 }
 .page1{
-    margin-top: 40px;
+    margin-top: 150px;
     margin-left: 500px;
     display: flex;
     flex-direction: row;
-    gap:30px
-    
+    gap:30px;
+       
 }
 .td1{
 color:black;
